@@ -4,9 +4,14 @@ class Counter extends Component {
     componentDidUpdate(prevProps, prevState) {
         console.log('prevProps', prevProps);
         console.log('prevState', prevState);
+        if (prevProps.counter.value != this.props.counter.value) {
+            // Ajax call and get new data from the server
+        }
     }
 
-
+    componentWillUnmount() {
+        console.log('Counter - Unmount');
+    }
 
     // renderTags() {
     //     if (this.state.tags.length === 0) return <p>There are no tags!</p>;

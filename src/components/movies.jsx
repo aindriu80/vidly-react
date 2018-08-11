@@ -5,11 +5,11 @@ import ListGroup from './common/listGroup';
 import Pagination from './common/pagination';
 import { getMovies } from '../services/fakeMovieService';
 import { getGenres } from '../services/fakeGenreService';
-import { pageinate, paginate } from '../utils/paginate';
+import { paginate } from '../utils/paginate';
 class Movies extends Component {
     state = {
         movies: getMovies(),
-        movies: [],
+        // movies: [],
         genres: [],
         currentPage: 1,
         pageSize: 4
@@ -55,7 +55,12 @@ class Movies extends Component {
         return (
             <div className="row">
                 <div className="col-2">
-                    <ListGroup items={this.state.genre} onItemSelect={this.handleGenreSelect} />
+                    <ListGroup
+                        items={this.state.genres}
+                        textProperty="name"
+                        valueProperty="_id"
+                        onItemSelect={this.handleGenreSelect}
+                    />
                 </div>
                 <div className="col">
                     <p>Showing {count} movies in the database.</p>

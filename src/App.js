@@ -1,7 +1,7 @@
-import Counters from './components/counters';
+// import Counters from './components/counters';
 import React, { Component } from 'react';
 import Movies from './components/movies';
-import Navbar from './components/nav-bar';
+// import Navbar from './components/nav-bar';
 
 import './App.css';
 

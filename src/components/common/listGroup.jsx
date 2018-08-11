@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Listgroup extends Component {
-    render() {
-        return (
-            <div className="listGroup">
-                <a href="#" className="list-group-item list-group-item-action active">
-                    All Genres
-  </a>
-                <a href="#" className="list-group-item list-group-item-action">Action</a>
-                <a href="#" className="list-group-item list-group-item-action">Comedy</a>
-                <a href="#" className="list-group-item list-group-item-action">Thriller</a>
-            </div>
+const Listgroup = (props) => {
+    const { items, textProperty, valueProperty } = props;
 
-        );
-    }
-}
+    return (
+        <ul className="list-group">
+            <li className="list-group-item active">Genre</li>
+            {items.map(item => (
+                <li key={item[valueProperty]} className="list-group-item">
+                    {item[textProperty]}
+                </li>
+            ))}
+        </ul>
+    );
+
+};
 
 export default Listgroup;

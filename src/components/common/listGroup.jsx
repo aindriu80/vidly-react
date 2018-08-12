@@ -15,5 +15,9 @@ const Listgroup = (props) => {
     );
 
 };
+Listgroup.defaultProps = {
+    textProperty: 'name',
+    valueProperty: '_id'
+};
 
 export default Listgroup;

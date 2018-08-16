@@ -15,16 +15,16 @@ class App extends Component {
     ]
   };
 
-  constructor() {
-    super();
-    console.log('App - constructor');
-    // this.state = this.props.something;
-  };
+  // constructor() {
+  //   super();
+  //   // console.log('App - constructor');
+  //   // this.state = this.props.something;
+  // };
 
   componentDidMount() {
     // Ajax Call
     // this.setState({ movies})
-    console.log('App - mounted');
+    // console.log('App - mounted');
 
   };
 
@@ -63,7 +63,7 @@ class App extends Component {
 
 
   render() {
-    console.log('App - rendered');
+    // console.log('App - rendered');
     return (
       <main className="container">
         <Movies />

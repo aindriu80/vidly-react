@@ -1,9 +1,14 @@
 // import Counters from './components/counters';
 import React, { Component } from 'react';
 import Movies from './components/movies';
-// import Navbar from './components/nav-bar';
+import Navbar from './components/nav-bar';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
 import './App.css';
+import NavBar from './components/nav-bar';
+import Customers from './components/customers';
+import NotFound from './components/notFound';
+import Rentals from './components/rentals';
 
 class App extends Component {
   state = {
@@ -66,7 +71,16 @@ class App extends Component {
     // console.log('App - rendered');
     return (
       <main className="container">
-        <Movies />
+        <Switch>
+          <Route path="/movies" component={Movies}></Route>
+          <Route path="/customers" component={Customers}></Route>
+          <Route path="/rentals" component={Rentals}></Route>
+          <Route path="/not-found" component={NotFound}></Route>
+          <Redirect from="/" exact to="/movies" />
+          <Redirect to="/not-found" />
+        </Switch>
+        {/* <NavBar />
+        <Movies /> */}
       </main>
 
       // < React.Fragment >

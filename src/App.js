@@ -9,6 +9,7 @@ import Customers from "./components/customers";
 import NotFound from "./components/notFound";
 import Rentals from "./components/rentals";
 import "./App.css";
+import RegisterForm from "./components/registerForm";
 
 class App extends Component {
   state = {
@@ -72,6 +73,7 @@ class App extends Component {
         <NavBar />
         <main className="container">
           <Switch>
+            <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             <Route path="/movies/:id" component={MovieForm} />
             <Route path="/movies" component={Movies} />

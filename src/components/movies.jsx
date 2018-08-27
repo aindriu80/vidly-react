@@ -88,7 +88,11 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <button onClick={this.newMovie} type="button" class="btn btn-primary">
+          <button
+            onClick={this.newMovie}
+            type="button"
+            className="btn btn-primary"
+          >
             New Movie
           </button>
           <p>Showing {totalCount} movies in the database.</p>

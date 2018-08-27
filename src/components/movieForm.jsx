@@ -6,7 +6,12 @@ import { getGenres } from "../services/fakeGenreService";
 
 class MovieForm extends Form {
   state = {
-    data: { title: "", genreId: "", numberInStock: "", dailyRentalrate: "" },
+    data: {
+      title: "",
+      genreId: "",
+      numberInStock: "",
+      dailyRentalRate: ""
+    },
     genres: [],
     errors: {}
   };
@@ -58,7 +63,7 @@ class MovieForm extends Form {
     // Call the server
     saveMovie(this.state.data);
 
-    this.this.props.history.push("/movies");
+    this.props.history.push("/movies");
     console.log("Submitted");
   };
 
@@ -69,8 +74,8 @@ class MovieForm extends Form {
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
           {this.renderSelect("genreId", "Genre", this.state.genres)}
-          {this.renderInput("numberInStock", "Number in stock")}
-          {this.renderInput("rate", "Rate")}
+          {this.renderInput("numberInStock", "Number in stock", "number")}
+          {this.renderInput("dailyRentalRate", "Rate")}
           {this.renderButton("Save")}
         </form>
         {/* <button

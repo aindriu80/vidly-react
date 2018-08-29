@@ -1,6 +1,7 @@
 // import Counters from './components/counters';
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import LoginForm from "./components/loginForm";
 import Movies from "./components/movies";
 import MovieForm from "./components/movieForm";
@@ -10,6 +11,7 @@ import NotFound from "./components/notFound";
 import Rentals from "./components/rentals";
 import "./App.css";
 import RegisterForm from "./components/registerForm";
+import "react-toastify/dist/ReactToastify.css";
 
 class App extends Component {
   state = {
@@ -70,6 +72,7 @@ class App extends Component {
     // console.log('App - rendered');
     return (
       <React.Fragment>
+        <ToastContainer />
         <NavBar />
         <main className="container">
           <Switch>

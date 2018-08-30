@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MoviesTable from "./moviesTable";
 import { toast } from "react-toastify";
+import MoviesTable from "./moviesTable";
 import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
 import { getMovies, deleteMovie } from "../services/movieService";
@@ -8,7 +8,7 @@ import { getGenres } from "../services/genreService";
 import { paginate } from "../utils/paginate";
 import _ from "lodash";
 import SearchBox from "./common/searchBox";
-import { getMovie } from "../services/fakeMovieService";
+// import { getMovie } from "../services/fakeMovieService";
 class Movies extends Component {
   state = {
     movies: [],
@@ -24,8 +24,9 @@ class Movies extends Component {
     const { data } = await getGenres();
     const genres = [{ _id: "", name: "All Genres" }, ...data];
 
-    const { data: movies } = await getMovie();
-    this.setState({ movies: getMovies(), genres });
+    const { data: movies } = await getMovies();
+    // this.setState({ movies: getMovies(), genres });
+    this.setState({ movies, genres });
   }
 
   handleDelete = async movie => {

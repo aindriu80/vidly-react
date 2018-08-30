@@ -9,19 +9,19 @@ import NavBar from "./components/navBar";
 import Customers from "./components/customers";
 import NotFound from "./components/notFound";
 import Rentals from "./components/rentals";
-import "./App.css";
 import RegisterForm from "./components/registerForm";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 
 class App extends Component {
-  state = {
-    counters: [
-      { id: 1, value: 4 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 }
-    ]
-  };
+  // state = {
+  //   counters: [
+  //     { id: 1, value: 4 },
+  //     { id: 2, value: 0 },
+  //     { id: 3, value: 0 },
+  //     { id: 4, value: 0 }
+  //   ]
+  // };
 
   // constructor() {
   //   super();

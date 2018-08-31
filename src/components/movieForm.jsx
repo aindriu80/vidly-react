@@ -24,7 +24,7 @@ class MovieForm extends Form {
     genreId: Joi.string()
       .required()
       .label("Genre"),
-    numberInStock: Joi.string()
+    numberInStock: Joi.number()
       .required()
       .min(0)
       .max(100)
@@ -69,9 +69,9 @@ class MovieForm extends Form {
     };
   }
 
-  doSubmit = () => {
+  doSubmit = async () => {
     // Call the server
-    saveMovie(this.state.data);
+    await saveMovie(this.state.data);
 
     this.props.history.push("/movies");
     console.log("Submitted");
@@ -84,7 +84,7 @@ class MovieForm extends Form {
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("title", "Title")}
           {this.renderSelect("genreId", "Genre", this.state.genres)}
-          {this.renderInput("numberInStock", "Number in stock", "number")}
+          {this.renderInput("numberInStock", "Number in Stock", "number")}
           {this.renderInput("dailyRentalRate", "Rate")}
           {this.renderButton("Save")}
         </form>

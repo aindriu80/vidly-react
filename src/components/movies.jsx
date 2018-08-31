@@ -93,9 +93,9 @@ class Movies extends Component {
     return { totalCount: filtered.length, data: movies };
   };
 
-  newMovie = user => {
-    this.props.history.push("movies/new");
-  };
+  // newMovie = user => {
+  //   this.props.history.push("movies/new");
+  // };
 
   render() {
     const { length: count } = this.state.movies;

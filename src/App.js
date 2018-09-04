@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { jwtDecode } from "jwt-decode";
 import LoginForm from "./components/loginForm";
 import Movies from "./components/movies";
 import MovieForm from "./components/movieForm";
@@ -14,25 +15,15 @@ import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 
 class App extends Component {
-  // state = {
-  //   counters: [
-  //     { id: 1, value: 4 },
-  //     { id: 2, value: 0 },
-  //     { id: 3, value: 0 },
-  //     { id: 4, value: 0 }
-  //   ]
-  // };
-
-  // constructor() {
-  //   super();
-  //   // console.log('App - constructor');
-  //   // this.state = this.props.something;
-  // };
+  state = {};
 
   componentDidMount() {
-    // Ajax Call
-    // this.setState({ movies})
-    // console.log('App - mounted');
+    try {
+      const jwt = localStorage.getItem("token");
+      const user = jwtDecode(jwt);
+      console.log(user);
+      this.setState({ user });
+    } catch (ex) {}
   }
 
   handleIncrement = counter => {
@@ -73,7 +64,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
-        <NavBar />
+        <NavBar user={this.state.user} />
         <main className="container">
           <Switch>
             <Route path="/register" component={RegisterForm} />

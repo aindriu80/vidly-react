@@ -21,46 +21,10 @@ class App extends Component {
     try {
       const jwt = localStorage.getItem("token");
       const user = jwtDecode(jwt);
-      console.log(user);
       this.setState({ user });
     } catch (ex) {}
   }
-
-  handleIncrement = counter => {
-    console.log(counter);
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value++;
-    console.log(this.state.counters[index]);
-    this.setState({ counters });
-  };
-
-  handleDecrement = counter => {
-    console.log(counter);
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value--;
-    console.log(this.state.counters[index]);
-    this.setState({ counters });
-  };
-
-  handleReset = () => {
-    const counters = this.state.counters.map(c => {
-      c.value = 0;
-      return c;
-    });
-    this.setState({ counters });
-  };
-
-  handleDelete = counterId => {
-    const counters = this.state.counters.filter(c => c.id !== counterId);
-    this.setState({ counters });
-  };
-
   render() {
-    // console.log('App - rendered');
     return (
       <React.Fragment>
         <ToastContainer />

@@ -1,6 +1,6 @@
+import jwtDecode from "jwt-decode";
 import http from "./httpService";
 import { apiUrl } from "../config.json";
-import jwtDecode from "jwt-decode";
 
 const apiEndpoint = apiUrl + "/auth";
 const tokenKey = "token";
@@ -27,9 +27,14 @@ export function getCurrentUser() {
   }
 }
 
+export function getJwt() {
+  return localStorage.getItem(tokenKey);
+}
+
 export default {
   login,
   loginWithJwt,
   logout,
-  getCurrentUser
+  getCurrentUser,
+  getJwt
 };

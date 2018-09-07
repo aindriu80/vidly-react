@@ -23,6 +23,7 @@ class Movies extends Component {
   async componentDidMount() {
     const { data } = await getGenres();
     const genres = [{ _id: "", name: "All Genres" }, ...data];
+    const { user } = this.props;
 
     const { data: movies } = await getMovies();
     // this.setState({ movies: getMovies(), genres });
@@ -100,10 +101,10 @@ class Movies extends Component {
   render() {
     const { length: count } = this.state.movies;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
+    const { totalCount, data: movies } = this.getPagedData();
+    const { user } = this.props;
 
     if (count === 0) return <p> There are no movies in the database.</p>;
-
-    const { totalCount, data: movies } = this.getPagedData();
 
     return (
       <div className="row">
@@ -115,13 +116,15 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <button
-            onClick={this.newMovie}
-            type="button"
-            className="btn btn-primary"
-          >
-            New Movie
-          </button>
+          {user && (
+            <button
+              onClick={this.newMovie}
+              type="button"
+              className="btn btn-primary"
+            >
+              New Movie
+            </button>
+          )}
           <p>Showing {totalCount} movies in the database.</p>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable

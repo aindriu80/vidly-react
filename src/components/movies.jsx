@@ -128,6 +128,7 @@ class Movies extends Component {
           )}
           <p>Showing {totalCount} movies in the database.</p>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
+
           <MoviesTable
             movies={movies}
             sortColumn={sortColumn}
@@ -135,6 +136,7 @@ class Movies extends Component {
             onDelete={this.handleDelete}
             onSort={this.handleSort}
           />
+
           <Pagination
             itemsCount={totalCount}
             pageSize={pageSize}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import MoviesTable from "./moviesTable";
 import ListGroup from "./common/listGroup";
@@ -117,13 +118,13 @@ class Movies extends Component {
         </div>
         <div className="col">
           {user && (
-            <button
-              onClick={this.newMovie}
-              type="button"
+            <Link
+              to="/movies/new"
               className="btn btn-primary"
+              style={{ marginBottom: 20 }}
             >
               New Movie
-            </button>
+            </Link>
           )}
           <p>Showing {totalCount} movies in the database.</p>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
